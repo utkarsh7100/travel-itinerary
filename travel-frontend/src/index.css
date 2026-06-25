@@ -1,0 +1,438 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ==========================
+   ROOT VARIABLES
+========================== */
+:root {
+  --bg: #050505;
+  --bg-secondary: #0c0c0c;
+
+  --card: rgba(255,255,255,0.04);
+  --card-hover: rgba(255,255,255,0.06);
+
+  --border: rgba(255,255,255,0.08);
+  --border-hover: rgba(255,255,255,0.18);
+
+  --text: #ffffff;
+  --text-secondary: #b5b5b5;
+
+  --accent: #60a5fa;
+
+  --radius: 20px;
+
+  --shadow:
+    0 10px 30px rgba(0,0,0,0.35);
+
+  --glow:
+    0 0 25px rgba(255,255,255,0.12);
+}
+
+/* ==========================
+   RESET
+========================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  background-color: var(--bg);
+
+  /* Travel-map / contour style pattern */
+  background-image:
+    repeating-radial-gradient(
+      circle at center,
+      transparent 0px,
+      transparent 40px,
+      rgba(255,255,255,0.025) 41px,
+      rgba(255,255,255,0.025) 42px
+    );
+
+  background-attachment: fixed;
+
+  line-height: 1.6;
+}
+
+/* ==========================
+   CONTAINER
+========================== */
+
+.container {
+  width: min(92%, 1200px);
+  margin: auto;
+  padding: clamp(20px, 4vw, 50px);
+}
+
+/* ==========================
+   TYPOGRAPHY
+========================== */
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -2px;
+  margin-bottom: 12px;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  margin-bottom: 16px;
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+p {
+  color: var(--text-secondary);
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
+
+/* ==========================
+   HEADER
+========================== */
+
+header {
+  padding: 40px 0;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+/* ==========================
+   GLASS CARD
+========================== */
+
+.card {
+  background: var(--card);
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius);
+
+  padding: 24px;
+
+  box-shadow: var(--shadow);
+
+  transition: all 0.35s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+
+  border-color: var(--border-hover);
+
+  box-shadow:
+    var(--shadow),
+    var(--glow);
+}
+
+/* ==========================
+   FORM
+========================== */
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* ==========================
+   INPUTS
+========================== */
+
+input,
+textarea,
+select {
+  width: 100%;
+
+  padding: 15px 18px;
+
+  background: rgba(255,255,255,0.03);
+
+  border: 1px solid var(--border);
+
+  border-radius: 14px;
+
+  color: white;
+
+  font-size: 15px;
+
+  transition: all 0.3s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #777;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+
+  border-color: rgba(255,255,255,0.25);
+
+  box-shadow:
+    0 0 0 4px rgba(255,255,255,0.05);
+}
+
+/* ==========================
+   BUTTON
+========================== */
+
+button {
+  background: white;
+
+  color: black;
+
+  border: none;
+
+  padding: 15px 28px;
+
+  border-radius: 14px;
+
+  font-weight: 600;
+
+  font-size: 15px;
+
+  cursor: pointer;
+
+  transition: all .3s ease;
+}
+
+button:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 0 35px rgba(255,255,255,0.25);
+}
+
+button:active {
+  transform: scale(.97);
+}
+
+/* ==========================
+   TRIP CARD
+========================== */
+
+.trip-card {
+  margin-top: 20px;
+
+  background: rgba(255,255,255,0.04);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  border-radius: 24px;
+
+  padding: 24px;
+
+  transition: all .3s ease;
+}
+
+.trip-card:hover {
+  transform: translateY(-5px);
+
+  border-color: rgba(255,255,255,0.18);
+
+  box-shadow:
+    0 15px 40px rgba(255,255,255,0.06);
+}
+
+.trip-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.trip-meta {
+  margin-top: 8px;
+  color: var(--text-secondary);
+}
+
+/* ==========================
+   TIMELINE
+========================== */
+
+.timeline {
+  margin-top: 24px;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 25px;
+}
+
+.timeline-item::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 8px;
+
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+
+  background: white;
+}
+
+.timeline-item::after {
+  content: "";
+
+  position: absolute;
+
+  left: 4px;
+  top: 20px;
+
+  width: 1px;
+  height: calc(100% + 8px);
+
+  background: rgba(255,255,255,0.15);
+}
+
+.timeline-item:last-child::after {
+  display: none;
+}
+
+/* ==========================
+   EMPTY STATE
+========================== */
+
+.empty-state {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.empty-state h3 {
+  margin-top: 16px;
+}
+
+.empty-state p {
+  margin-top: 10px;
+}
+
+/* ==========================
+   TOAST
+========================== */
+
+.toast {
+  position: fixed;
+
+  left: 50%;
+  bottom: 30px;
+
+  transform: translateX(-50%);
+
+  background: rgba(20,20,20,0.95);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  padding: 14px 22px;
+
+  border-radius: 999px;
+
+  backdrop-filter: blur(15px);
+
+  color: white;
+
+  z-index: 1000;
+}
+
+/* ==========================
+   SCROLLBAR
+========================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.18);
+  border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+/* ==========================
+   ANIMATIONS
+========================== */
+
+.fade-in {
+  animation: fadeIn .6s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width: 768px) {
+
+  .container {
+    width: 95%;
+  }
+
+  form {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  .card,
+  .trip-card {
+    padding: 18px;
+  }
+}
